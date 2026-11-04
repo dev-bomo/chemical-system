@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+:root {
+  --steel-950: #0b1220;
+  --steel-900: #111b2e;
+  --steel-800: #1a2740;
+  --steel-700: #243552;
+  --steel-600: #3a4d6b;
+  --steel-400: #8fa3bf;
+  --steel-300: #b7c5d8;
+  --steel-100: #e8eef6;
+  --steel-50: #f4f7fb;
+  --amber-500: #d97706;
+  --amber-400: #f59e0b;
+  --amber-300: #fbbf24;
+  --surface: #f4f7fb;
+  --ink: #0f172a;
+  --muted: #5b6b82;
+  --line: rgba(26, 39, 64, 0.12);
+  --background: var(--surface);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-steel-950: var(--steel-950);
+  --color-steel-900: var(--steel-900);
+  --color-steel-800: var(--steel-800);
+  --color-steel-700: var(--steel-700);
+  --color-steel-600: var(--steel-600);
+  --color-steel-400: var(--steel-400);
+  --color-steel-300: var(--steel-300);
+  --color-steel-100: var(--steel-100);
+  --color-steel-50: var(--steel-50);
+  --color-amber-500: var(--amber-500);
+  --color-amber-400: var(--amber-400);
+  --color-amber-300: var(--amber-300);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --font-sans: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), "Source Serif 4", Georgia, serif;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+
+::selection {
+  background: color-mix(in srgb, var(--amber-400) 35%, white);
+  color: var(--steel-950);
+}
+
+.texture-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(
+      105deg,
+      rgba(11, 18, 32, 0.92) 0%,
+      rgba(17, 27, 46, 0.78) 42%,
+      rgba(17, 27, 46, 0.45) 100%
+    ),
+    radial-gradient(
+      ellipse at 70% 40%,
+      rgba(217, 119, 6, 0.18),
+      transparent 55%
+    );
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes hero-crossfade {
+  0% {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  8% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  38%,
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.hero-bg-slide {
+  opacity: 0;
+  animation: hero-crossfade 18s ease-in-out infinite;
+}
+
+.hero-bg-slide:first-child {
+  opacity: 1;
+}
+
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+.animate-fade-up-delay {
+  animation: fade-up 0.8s ease-out 0.15s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.8s ease-out 0.3s both;
+}
+
+.hero-slide {
+  animation: kenburns 18s ease-out forwards;
+}
+
+.prose-industrial h2,
+.prose-industrial h3 {
+  font-family: var(--font-serif), "Source Serif 4", Georgia, serif;
+  color: var(--steel-900);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-industrial p {
+  margin-bottom: 0.9rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--ink) 88%, var(--muted));
+}
+
+.prose-industrial .tds-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber-500);
+  font-weight: 600;
+  margin-top: 1.75rem;
+}
