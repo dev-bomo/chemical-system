@@ -25,21 +25,18 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-steel-950/90 text-steel-100 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-line bg-white/95 text-steel-900 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/ro/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link href="/ro/" className="flex items-center" onClick={() => setOpen(false)}>
           <Image
             src={siteConfig.logo}
-            alt={siteConfig.name}
-            width={160}
+            alt={siteConfig.legalName}
+            width={280}
             height={48}
-            className="h-10 w-auto object-contain sm:h-11"
+            className="h-9 w-auto object-contain sm:h-10"
             unoptimized
             priority
           />
-          <span className="hidden font-serif text-lg tracking-tight text-white sm:block">
-            Chemical System
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -55,19 +52,19 @@ export function Header() {
                   href={item.href}
                   className={`rounded px-3 py-2 text-sm transition ${
                     isActive(item.href)
-                      ? "text-amber-300"
-                      : "text-steel-300 hover:text-white"
+                      ? "font-semibold text-brand-red"
+                      : "text-steel-700 hover:text-brand-black"
                   }`}
                 >
                   {item.label}
                 </Link>
                 {catalogOpen && (
-                  <div className="absolute left-0 top-full min-w-56 border border-white/10 bg-steel-900 py-2 shadow-xl">
+                  <div className="absolute left-0 top-full min-w-56 border border-line bg-white py-2 shadow-xl">
                     {categories.map((c) => (
                       <Link
                         key={c.slug}
                         href={`/ro/prod/${c.slug}/`}
-                        className="block px-4 py-2 text-sm text-steel-300 hover:bg-steel-800 hover:text-white"
+                        className="block px-4 py-2 text-sm text-steel-700 hover:bg-steel-50 hover:text-brand-black"
                       >
                         {c.name}
                       </Link>
@@ -81,8 +78,8 @@ export function Header() {
                 href={item.href}
                 className={`rounded px-3 py-2 text-sm transition ${
                   isActive(item.href)
-                    ? "text-amber-300"
-                    : "text-steel-300 hover:text-white"
+                    ? "font-semibold text-brand-red"
+                    : "text-steel-700 hover:text-brand-black"
                 }`}
               >
                 {item.label}
@@ -91,7 +88,7 @@ export function Header() {
           )}
           <a
             href={siteConfig.contact.phoneHref}
-            className="ml-2 border border-amber-400/40 bg-amber-500/10 px-3 py-2 text-sm text-amber-300 transition hover:bg-amber-500/20"
+            className="ml-2 border border-brand-blue/30 bg-brand-blue/5 px-3 py-2 text-sm font-medium text-brand-blue transition hover:bg-brand-blue/10"
           >
             {siteConfig.contact.phone}
           </a>
@@ -99,7 +96,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center border border-white/15 px-3 py-2 text-sm text-white lg:hidden"
+          className="inline-flex items-center justify-center border border-line px-3 py-2 text-sm text-brand-black lg:hidden"
           aria-expanded={open}
           aria-label="Meniu"
           onClick={() => setOpen((v) => !v)}
@@ -109,26 +106,26 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-white/10 bg-steel-950 px-4 py-4 lg:hidden">
+        <div className="border-t border-line bg-white px-4 py-4 lg:hidden">
           <div className="flex flex-col gap-1">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-2 py-2 text-steel-200"
+                className="px-2 py-2 text-steel-800"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <p className="mt-2 px-2 text-xs uppercase tracking-wider text-steel-400">
+            <p className="mt-2 px-2 text-xs uppercase tracking-wider text-brand-blue">
               Categorii
             </p>
             {categories.map((c) => (
               <Link
                 key={c.slug}
                 href={`/ro/prod/${c.slug}/`}
-                className="px-2 py-2 text-sm text-steel-300"
+                className="px-2 py-2 text-sm text-steel-700"
                 onClick={() => setOpen(false)}
               >
                 {c.name}
@@ -136,7 +133,7 @@ export function Header() {
             ))}
             <a
               href={siteConfig.contact.phoneHref}
-              className="mt-2 px-2 py-2 text-amber-300"
+              className="mt-2 px-2 py-2 font-medium text-brand-blue"
               onClick={() => setOpen(false)}
             >
               Sună: {siteConfig.contact.phone}

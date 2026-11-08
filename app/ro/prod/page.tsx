@@ -50,7 +50,7 @@ export default function CatalogPage() {
                   </div>
                   <Link
                     href={categoryHref(cat)}
-                    className="text-sm font-medium text-amber-600 hover:text-amber-500"
+                    className="text-sm font-medium text-brand-blue hover:text-brand-blue"
                   >
                     Vezi categoria →
                   </Link>
@@ -60,7 +60,7 @@ export default function CatalogPage() {
                     <li key={p.slug}>
                       <Link
                         href={productHref(p)}
-                        className="block py-2 text-steel-800 transition hover:text-amber-700"
+                        className="block py-2 text-steel-800 transition hover:text-brand-red"
                       >
                         {p.name}
                       </Link>

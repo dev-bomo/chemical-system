@@ -77,7 +77,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
                     {p.summary}
                   </p>
                 </div>
-                <span className="text-sm font-medium text-amber-600">
+                <span className="text-sm font-medium text-brand-blue">
                   Detalii →
                 </span>
               </Link>
@@ -88,7 +88,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
         <div className="mt-10">
           <Link
             href="/ro/cerere-oferta/"
-            className="inline-block bg-amber-500 px-5 py-3 text-sm font-semibold text-steel-950 hover:bg-amber-400"
+            className="inline-block bg-brand-red px-5 py-3 text-sm font-semibold text-white hover:bg-amber-400"
           >
             Solicită ofertă pentru {cat.name.toLowerCase()}
           </Link>

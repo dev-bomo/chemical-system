@@ -34,19 +34,19 @@ export function Hero() {
         <div className="animate-fade-up-delay-2 mt-8 flex flex-wrap gap-3">
           <Link
             href="/ro/cerere-oferta/"
-            className="bg-amber-500 px-5 py-3 text-sm font-semibold text-steel-950 transition hover:bg-amber-400"
+            className="bg-brand-red px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-400"
           >
             Solicită ofertă
           </Link>
           <Link
             href="/ro/prod/"
-            className="border border-white/30 bg-white/5 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
+            className="border border-white/35 bg-white/5 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
           >
             Vezi catalogul
           </Link>
           <a
             href={siteConfig.contact.phoneHref}
-            className="px-5 py-3 text-sm font-semibold text-amber-300 transition hover:text-amber-200"
+            className="px-5 py-3 text-sm font-semibold text-blue-300 transition hover:text-white"
           >
             {siteConfig.contact.phone}
           </a>

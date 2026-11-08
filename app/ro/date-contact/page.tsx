@@ -32,7 +32,7 @@ export default function ContactPage() {
             </p>
             <dl className="mt-6 space-y-4 text-sm">
               <div>
-                <dt className="text-xs uppercase tracking-wider text-amber-600">
+                <dt className="text-xs uppercase tracking-wider text-brand-blue">
                   Adresă
                 </dt>
                 <dd className="mt-1 text-steel-800">
@@ -40,7 +40,7 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wider text-amber-600">
+                <dt className="text-xs uppercase tracking-wider text-brand-blue">
                   Persoană de contact
                 </dt>
                 <dd className="mt-1 text-steel-800">
@@ -48,7 +48,7 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wider text-amber-600">
+                <dt className="text-xs uppercase tracking-wider text-brand-blue">
                   Telefon
                 </dt>
                 <dd className="mt-1 text-steel-800">
@@ -65,7 +65,7 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wider text-amber-600">
+                <dt className="text-xs uppercase tracking-wider text-brand-blue">
                   Email
                 </dt>
                 <dd className="mt-1">
@@ -78,7 +78,7 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wider text-amber-600">
+                <dt className="text-xs uppercase tracking-wider text-brand-blue">
                   Date societate
                 </dt>
                 <dd className="mt-1 text-steel-800">

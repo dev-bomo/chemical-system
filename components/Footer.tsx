@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-white/10 bg-steel-950 text-steel-300">
+    <footer className="mt-auto border-t border-white/10 bg-brand-black text-steel-300">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div>
           <p className="font-serif text-2xl text-white">{siteConfig.name}</p>
@@ -21,7 +21,7 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-amber-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
             Catalog
           </p>
           <ul className="mt-4 space-y-2 text-sm">
@@ -39,7 +39,7 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-amber-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-blue">
             Contact
           </p>
           <ul className="mt-4 space-y-2 text-sm">
@@ -71,7 +71,7 @@ export function Footer() {
               </a>
             </li>
             <li className="pt-2">
-              <Link href="/ro/cerere-oferta/" className="text-amber-300 hover:text-amber-200">
+              <Link href="/ro/cerere-oferta/" className="font-medium text-brand-red hover:text-white">
                 Solicită ofertă →
               </Link>
             </li>

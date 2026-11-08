@@ -76,7 +76,7 @@ export default async function ProductPage({ params }: { params: Params }) {
           </div>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-amber-600">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-blue">
               {product.categoryName}
             </p>
             <h1 className="mt-2 font-serif text-4xl text-steel-900">
@@ -89,7 +89,7 @@ export default async function ProductPage({ params }: { params: Params }) {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/ro/cerere-oferta/"
-                className="bg-amber-500 px-5 py-3 text-sm font-semibold text-steel-950 hover:bg-amber-400"
+                className="bg-brand-red px-5 py-3 text-sm font-semibold text-white hover:bg-amber-400"
               >
                 Solicită ofertă
               </Link>

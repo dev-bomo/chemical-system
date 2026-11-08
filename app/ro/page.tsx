@@ -24,7 +24,7 @@ export default function HomePage() {
       <section className="border-b border-line bg-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-500">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-blue">
               De ce Chemical System
             </p>
             <h2 className="mt-3 font-serif text-3xl text-steel-900 sm:text-4xl">
@@ -40,7 +40,7 @@ export default function HomePage() {
               {siteConfig.differentiator}
             </p>
           </div>
-          <ul className="space-y-4 border-l-2 border-amber-500/50 pl-6 text-steel-800">
+          <ul className="space-y-4 border-l-2 border-brand-red/60 pl-6 text-steel-800">
             <li>Diluanți vopsele și rășini poliesterice</li>
             <li>Diluanți pentru utilizări speciale</li>
             <li>Antigel pentru instalații de încălzire</li>
@@ -54,7 +54,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-500">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-blue">
                 Catalog
               </p>
               <h2 className="mt-2 font-serif text-3xl text-steel-900">
@@ -74,7 +74,7 @@ export default function HomePage() {
               <Link
                 key={cat.slug}
                 href={categoryHref(cat)}
-                className="group block border-t border-steel-800/20 pt-5 transition hover:border-amber-500"
+                className="group block border-t border-steel-800/20 pt-5 transition hover:border-brand-red"
               >
                 <h3 className="font-serif text-xl text-steel-900 group-hover:text-steel-700">
                   {cat.name}
@@ -82,7 +82,7 @@ export default function HomePage() {
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {cat.description}
                 </p>
-                <span className="mt-4 inline-block text-sm font-medium text-amber-600">
+                <span className="mt-4 inline-block text-sm font-medium text-brand-red">
                   Explorează →
                 </span>
               </Link>
@@ -118,7 +118,7 @@ export default function HomePage() {
                     )}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs uppercase tracking-wider text-amber-600">
+                    <p className="text-xs uppercase tracking-wider text-brand-blue">
                       {p.categoryName}
                     </p>
                     <p className="font-serif text-lg text-steel-900">{p.name}</p>
@@ -149,7 +149,7 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/ro/cerere-oferta/"
-              className="bg-amber-500 px-5 py-3 text-sm font-semibold text-steel-950 hover:bg-amber-400"
+              className="bg-brand-red px-5 py-3 text-sm font-semibold text-white hover:bg-amber-400"
             >
               Solicită ofertă
             </Link>

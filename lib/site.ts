@@ -1,3 +1,12 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "/chemical-system";
+
+/** Prefix a public asset path with the app basePath (needed for unoptimized images). */
+export function assetPath(path: string) {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  if (!basePath || basePath === "/") return normalized;
+  return `${basePath.replace(/\/$/, "")}${normalized}`;
+}
+
 export const siteConfig = {
   name: "Chemical System",
   legalName: "S.C. Chemical System Corporation SRL",
@@ -21,14 +30,15 @@ export const siteConfig = {
     cui: "11332692",
     j: "J35/1270/1998",
   },
-  logo: "https://www.chemicalsystem.ro/files/images/logo.png",
+  logo: assetPath("/logo.png"),
+  logoMark: assetPath("/logo-mark.png"),
   heroImages: [
     "https://www.chemicalsystem.ro/files/slideshow/27.png",
     "https://www.chemicalsystem.ro/files/slideshow/29.png",
     "https://www.chemicalsystem.ro/files/slideshow/31.png",
   ],
   siteUrl: "https://dev-bomo.github.io/chemical-system",
-  basePath: "/chemical-system",
+  basePath,
   differentiator:
     "Formulare custom: ne deplasăm la sediul clientului pentru a analiza materialele folosite și a oferi soluția optimă.",
 } as const;

@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <div className="mx-auto flex min-h-[50vh] max-w-6xl flex-col items-start justify-center px-4 py-20 sm:px-6">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-500">
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-blue">
         404
       </p>
       <h1 className="mt-2 font-serif text-4xl text-steel-900">
@@ -15,7 +15,7 @@ export default function NotFound() {
       <div className="mt-8 flex gap-3">
         <Link
           href="/ro/"
-          className="bg-amber-500 px-5 py-3 text-sm font-semibold text-steel-950 hover:bg-amber-400"
+          className="bg-brand-red px-5 py-3 text-sm font-semibold text-white hover:bg-amber-400"
         >
           Acasă
         </Link>

@@ -153,7 +153,7 @@ export function LeadForm({ kind, defaultProduct = "" }: Props) {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="bg-amber-500 px-5 py-3 text-sm font-semibold text-steel-950 transition hover:bg-amber-400 disabled:opacity-60"
+        className="bg-brand-red px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-400 disabled:opacity-60"
       >
         {status === "sending" ? "Se trimite…" : "Trimite"}
       </button>
