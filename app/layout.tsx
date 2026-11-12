@@ -19,14 +19,21 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
+const ogImage = {
+  url: absoluteUrl(siteConfig.ogImage),
+  width: 1200,
+  height: 630,
+  alt: `${siteConfig.name} — logo`,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: "Chemical System — Diluanți, solvenți și antigel",
-    template: "%s | Chemical System",
+    default: `${siteConfig.name} — Diluanți, solvenți și antigel`,
+    template: `%s | ${siteConfig.name}`,
   },
   description:
-    "S.C. Chemical System Corporation SRL — producător de diluanți, solvenți și antigel din 1998. Formulare custom, analiză la sediul clientului. Margina, Timiș.",
+    "Chemical System Corporation — producător de diluanți, solvenți și antigel din 1998. Formulare custom, analiză la sediul clientului. Margina, Timiș.",
   alternates: {
     canonical: absoluteUrl("/ro/"),
   },
@@ -34,11 +41,18 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ro_RO",
     siteName: siteConfig.name,
-    title: "Chemical System — Diluanți, solvenți și antigel",
+    title: `${siteConfig.name} — Diluanți, solvenți și antigel`,
     description:
       "Producător românesc de diluanți și antigel. Soluții individualizate din 1998.",
     url: absoluteUrl("/ro/"),
-    images: [{ url: siteConfig.logo }],
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — Diluanți, solvenți și antigel`,
+    description:
+      "Producător românesc de diluanți și antigel. Soluții individualizate din 1998.",
+    images: [ogImage.url],
   },
 };
 

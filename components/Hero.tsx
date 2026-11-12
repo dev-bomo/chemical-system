@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteConfig } from "@/lib/site";
+import { quoteHref, siteConfig } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -21,11 +21,11 @@ export function Hero() {
       </div>
 
       <div className="relative mx-auto flex min-h-[92vh] max-w-6xl flex-col justify-end px-4 pb-16 pt-28 sm:px-6 sm:pb-20">
-        <p className="animate-fade-up font-serif text-4xl tracking-tight text-white sm:text-6xl md:text-7xl">
-          Chemical System
+        <p className="animate-fade-up font-serif text-3xl tracking-tight text-white sm:text-5xl md:text-6xl">
+          {siteConfig.name}
         </p>
         <h1 className="animate-fade-up-delay mt-5 max-w-2xl font-serif text-2xl leading-snug text-steel-100 sm:text-3xl md:text-4xl">
-          Diluanți și antigel formulate pe măsură, din 1998
+          Diluanți și antigel, formule personalizate, din 1998
         </h1>
         <p className="animate-fade-up-delay-2 mt-4 max-w-xl text-base leading-relaxed text-steel-300 sm:text-lg">
           Ne deplasăm la sediul clientului, analizăm materialele folosite și
@@ -33,7 +33,7 @@ export function Hero() {
         </p>
         <div className="animate-fade-up-delay-2 mt-8 flex flex-wrap gap-3">
           <Link
-            href="/ro/cerere-oferta/"
+            href={quoteHref({ from: "hero" })}
             className="bg-brand-red px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-400"
           >
             Solicită ofertă

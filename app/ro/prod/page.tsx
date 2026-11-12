@@ -7,12 +7,12 @@ import {
   categoryHref,
   productHref,
 } from "@/lib/content";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Catalog produse",
   description:
-    "Catalog Chemical System: diluanți uz general, diluanți specifici, antigel, materii prime chimice și produse noi.",
+    `Catalog ${siteConfig.name}: diluanți uz general, diluanți specifici, antigel, materii prime chimice și produse noi.`,
   alternates: { canonical: absoluteUrl("/ro/prod/") },
 };
 

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ProductBody } from "@/components/ProductBody";
 import { getProduct, products, productHref } from "@/lib/content";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, quoteHref } from "@/lib/site";
 
 type Params = Promise<{ segment: string; pathSegment: string }>;
 
@@ -88,7 +88,11 @@ export default async function ProductPage({ params }: { params: Params }) {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
-                href="/ro/cerere-oferta/"
+                href={quoteHref({
+                  from: "produs",
+                  product: product.name,
+                  category: product.categoryName,
+                })}
                 className="bg-brand-red px-5 py-3 text-sm font-semibold text-white hover:bg-amber-400"
               >
                 Solicită ofertă

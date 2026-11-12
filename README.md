@@ -61,6 +61,6 @@ La push pe `main` construiește site-ul și publică artifactul `out/` pe GitHub
 
 - **S.C. Chemical System Corporation SRL**
 - Margina nr. 63, Jud. Timiș
-- Cristian Moldovean — 0744.317.074 / 0256/326.022
+- Cristian Moldovean — 0722 300 065
 - office.cscm@gmail.com
 - CUI 11332692 / J35/1270/1998

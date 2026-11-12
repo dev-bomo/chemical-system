@@ -4,13 +4,14 @@ export function OrganizationJsonLd() {
   const data = {
     "@context": "https://schema.org",
     "@type": ["Organization", "LocalBusiness"],
-    name: siteConfig.legalName,
-    alternateName: siteConfig.name,
+    name: siteConfig.name,
+    legalName: siteConfig.legalName,
+    alternateName: siteConfig.legalName,
     url: siteConfig.siteUrl,
     logo: siteConfig.logo,
     foundingDate: String(siteConfig.founded),
     email: siteConfig.contact.email,
-    telephone: ["+40-744-317-074", "+40-256-326-022"],
+    telephone: siteConfig.contact.phoneE164,
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.street,
@@ -21,7 +22,7 @@ export function OrganizationJsonLd() {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
-      telephone: "+40-744-317-074",
+      telephone: siteConfig.contact.phoneE164,
       email: siteConfig.contact.email,
       availableLanguage: ["Romanian"],
       name: siteConfig.contact.person,

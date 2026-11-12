@@ -1,7 +1,8 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { siteConfig } from "@/lib/site";
+import { quoteDraft, siteConfig } from "@/lib/site";
 
 type FormKind = "contact" | "quote";
 
@@ -13,9 +14,22 @@ type Props = {
 type Status = "idle" | "sending" | "success" | "error";
 
 export function LeadForm({ kind, defaultProduct = "" }: Props) {
+  const searchParams = useSearchParams();
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
   const endpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
+
+  const product = searchParams.get("produs") || defaultProduct;
+  const category = searchParams.get("categorie") || "";
+  const from = searchParams.get("from") || "";
+  const draft =
+    kind === "quote"
+      ? quoteDraft({
+          from,
+          product: product || undefined,
+          category: category || undefined,
+        })
+      : "";
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -39,6 +53,7 @@ export function LeadForm({ kind, defaultProduct = "" }: Props) {
                 ? `Cerere ofertă — ${siteConfig.name}`
                 : `Mesaj contact — ${siteConfig.name}`,
             formType: kind,
+            source: from || undefined,
           }),
         });
         if (!res.ok) throw new Error("Request failed");
@@ -67,6 +82,7 @@ export function LeadForm({ kind, defaultProduct = "" }: Props) {
         kind === "quote"
           ? `Produs / nevoie: ${payload.produs || ""}`
           : null,
+        from ? `Sursă: ${from}` : null,
         "",
         String(payload.mesaj || ""),
       ]
@@ -128,8 +144,9 @@ export function LeadForm({ kind, defaultProduct = "" }: Props) {
         <label className="block text-sm">
           <span className="text-muted">Produs / aplicație</span>
           <input
+            key={`produs-${product}`}
             name="produs"
-            defaultValue={defaultProduct}
+            defaultValue={product}
             className={fieldClass}
             placeholder="Ex: diluant epoxidic, antigel non-toxic…"
           />
@@ -139,9 +156,11 @@ export function LeadForm({ kind, defaultProduct = "" }: Props) {
       <label className="block text-sm">
         <span className="text-muted">Mesaj</span>
         <textarea
+          key={`mesaj-${from}-${product}-${category}`}
           name="mesaj"
-          rows={5}
+          rows={kind === "quote" ? 9 : 5}
           className={fieldClass}
+          defaultValue={draft}
           placeholder={
             kind === "quote"
               ? "Descrieți cantitatea estimată, tipul de material și termenul dorit."

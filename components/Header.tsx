@@ -5,13 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { categories } from "@/lib/content";
-import { siteConfig } from "@/lib/site";
+import { quoteHref, siteConfig } from "@/lib/site";
 
 const nav = [
   { href: "/ro/", label: "Acasă" },
   { href: "/ro/prod/", label: "Catalog" },
   { href: "/ro/date-contact/", label: "Contact" },
-  { href: "/ro/cerere-oferta/", label: "Solicită ofertă" },
+  { href: quoteHref({ from: "header" }), label: "Solicită ofertă" },
 ];
 
 export function Header() {
@@ -20,8 +20,9 @@ export function Header() {
   const [catalogOpen, setCatalogOpen] = useState(false);
 
   const isActive = (href: string) => {
-    if (href === "/ro/") return pathname === "/ro" || pathname === "/ro/";
-    return pathname?.startsWith(href.replace(/\/$/, "")) ?? false;
+    const path = href.split("?")[0];
+    if (path === "/ro/") return pathname === "/ro" || pathname === "/ro/";
+    return pathname?.startsWith(path.replace(/\/$/, "")) ?? false;
   };
 
   return (

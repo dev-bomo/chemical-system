@@ -4,10 +4,10 @@ import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { OrganizationJsonLd } from "@/components/JsonLd";
 import { categories, products, categoryHref, productHref } from "@/lib/content";
-import { absoluteUrl, siteConfig } from "@/lib/site";
+import { absoluteUrl, quoteHref, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Chemical System — Diluanți, solvenți și antigel",
+  title: `${siteConfig.name} — Diluanți, solvenți și antigel`,
   description:
     "Producător românesc de diluanți vopsele, diluanți specifici și antigel din 1998. Formulare custom după analiza materialelor la sediul clientului.",
   alternates: { canonical: absoluteUrl("/ro/") },
@@ -25,7 +25,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-blue">
-              De ce Chemical System
+              De ce {siteConfig.name}
             </p>
             <h2 className="mt-3 font-serif text-3xl text-steel-900 sm:text-4xl">
               Soluții individualizate, nu rețete generice
@@ -148,7 +148,7 @@ export default function HomePage() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/ro/cerere-oferta/"
+              href={quoteHref({ from: "home" })}
               className="bg-brand-red px-5 py-3 text-sm font-semibold text-white hover:bg-amber-400"
             >
               Solicită ofertă

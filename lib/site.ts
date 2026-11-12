@@ -8,7 +8,7 @@ export function assetPath(path: string) {
 }
 
 export const siteConfig = {
-  name: "Chemical System",
+  name: "Chemical System Corporation",
   legalName: "S.C. Chemical System Corporation SRL",
   founded: 1998,
   address: {
@@ -19,10 +19,9 @@ export const siteConfig = {
   },
   contact: {
     person: "Cristian Moldovean",
-    phone: "0744.317.074",
-    phoneHref: "tel:+40744317074",
-    phoneAlt: "0256/326.022",
-    phoneAltHref: "tel:+40256326022",
+    phone: "0722 300 065",
+    phoneHref: "tel:+40722300065",
+    phoneE164: "+40722300065",
     email: "office.cscm@gmail.com",
     emailHref: "mailto:office.cscm@gmail.com",
   },
@@ -32,6 +31,7 @@ export const siteConfig = {
   },
   logo: assetPath("/logo.png"),
   logoMark: assetPath("/logo-mark.png"),
+  ogImage: "/og-image.png",
   heroImages: [
     "https://www.chemicalsystem.ro/files/slideshow/27.png",
     "https://www.chemicalsystem.ro/files/slideshow/29.png",
@@ -47,4 +47,39 @@ export function absoluteUrl(path = "/") {
   const base = siteConfig.siteUrl.replace(/\/$/, "");
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return `${base}${normalized}`;
+}
+
+export type QuoteContext = {
+  from?: string;
+  product?: string;
+  category?: string;
+};
+
+export function quoteHref(ctx: QuoteContext = {}) {
+  const params = new URLSearchParams();
+  if (ctx.from) params.set("from", ctx.from);
+  if (ctx.product) params.set("produs", ctx.product);
+  if (ctx.category) params.set("categorie", ctx.category);
+  const query = params.toString();
+  return query ? `/ro/cerere-oferta/?${query}` : "/ro/cerere-oferta/";
+}
+
+export function quoteDraft(ctx: QuoteContext) {
+  const intro = ctx.product
+    ? `Aș dori o ofertă pentru ${ctx.product}${ctx.category ? ` (${ctx.category})` : ""}.`
+    : ctx.category
+      ? `Aș dori o ofertă pentru produse din categoria ${ctx.category}.`
+      : "Aș dori o ofertă pentru diluanți / solvenți / antigel.";
+
+  return [
+    "Bună ziua,",
+    "",
+    intro,
+    "",
+    "Aplicație / materiale folosite: ",
+    "Cantitate estimată: ",
+    "Termen / locație livrare: ",
+    "",
+    "Mulțumesc.",
+  ].join("\n");
 }

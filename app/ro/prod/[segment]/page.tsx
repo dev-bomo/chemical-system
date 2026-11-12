@@ -9,7 +9,7 @@ import {
   getProductsByCategory,
   productHref,
 } from "@/lib/content";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, quoteHref } from "@/lib/site";
 
 type Params = Promise<{ segment: string }>;
 
@@ -87,7 +87,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
 
         <div className="mt-10">
           <Link
-            href="/ro/cerere-oferta/"
+            href={quoteHref({ from: "categorie", category: cat.name })}
             className="inline-block bg-brand-red px-5 py-3 text-sm font-semibold text-white hover:bg-amber-400"
           >
             Solicită ofertă pentru {cat.name.toLowerCase()}

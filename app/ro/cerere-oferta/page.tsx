@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LeadForm } from "@/components/LeadForm";
 import { absoluteUrl, siteConfig } from "@/lib/site";
@@ -6,7 +7,7 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Cerere ofertă",
   description:
-    "Solicitați ofertă pentru diluanți, antigel sau materii prime chimice de la Chemical System. Formulare custom disponibile.",
+    `Solicitați ofertă pentru diluanți, antigel sau materii prime chimice de la ${siteConfig.name}. Formulare custom disponibile.`,
   alternates: { canonical: absoluteUrl("/ro/cerere-oferta/") },
 };
 
@@ -29,7 +30,9 @@ export default function QuotePage() {
         </p>
 
         <div className="mt-8 border border-line bg-white p-6 sm:p-8">
-          <LeadForm kind="quote" />
+          <Suspense fallback={null}>
+            <LeadForm kind="quote" />
+          </Suspense>
         </div>
 
         <p className="mt-6 text-sm text-muted">

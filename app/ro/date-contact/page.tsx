@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LeadForm } from "@/components/LeadForm";
 import { absoluteUrl, siteConfig } from "@/lib/site";
@@ -55,13 +56,6 @@ export default function ContactPage() {
                   <a href={siteConfig.contact.phoneHref} className="hover:underline">
                     {siteConfig.contact.phone}
                   </a>
-                  <br />
-                  <a
-                    href={siteConfig.contact.phoneAltHref}
-                    className="hover:underline"
-                  >
-                    {siteConfig.contact.phoneAlt}
-                  </a>
                 </dd>
               </div>
               <div>
@@ -92,7 +86,7 @@ export default function ContactPage() {
             </dl>
             <div className="mt-8 aspect-[4/3] w-full overflow-hidden border border-line bg-steel-100">
               <iframe
-                title="Hartă Chemical System — Margina"
+                title={`Hartă ${siteConfig.name} — Margina`}
                 className="h-full w-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -107,7 +101,9 @@ export default function ContactPage() {
               Câmpurile marcate cu * sunt obligatorii.
             </p>
             <div className="mt-6">
-              <LeadForm kind="contact" />
+              <Suspense fallback={null}>
+                <LeadForm kind="contact" />
+              </Suspense>
             </div>
           </div>
         </div>

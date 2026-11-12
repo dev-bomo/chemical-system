@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { categories } from "@/lib/content";
-import { siteConfig } from "@/lib/site";
+import { quoteHref, siteConfig } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -54,13 +54,6 @@ export function Footer() {
               >
                 {siteConfig.contact.phone}
               </a>
-              {" / "}
-              <a
-                href={siteConfig.contact.phoneAltHref}
-                className="hover:text-white"
-              >
-                {siteConfig.contact.phoneAlt}
-              </a>
             </li>
             <li>
               <a
@@ -71,7 +64,7 @@ export function Footer() {
               </a>
             </li>
             <li className="pt-2">
-              <Link href="/ro/cerere-oferta/" className="font-medium text-brand-red hover:text-white">
+              <Link href={quoteHref({ from: "footer" })} className="font-medium text-brand-red hover:text-white">
                 Solicită ofertă →
               </Link>
             </li>
